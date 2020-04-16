@@ -10,9 +10,6 @@ namespace DojoSurvey.Controllers
 {
     public class HomeController : Controller
     {
-        public static List<string> SurveyInfo = new List<string>()
-        {
-        };
         [HttpGet("")]
         public IActionResult Index()
         {
