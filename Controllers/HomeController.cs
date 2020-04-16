@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,14 +19,21 @@ namespace DojoSurvey.Controllers
         [HttpPost("submit")]    
         public IActionResult Submit(Survey survey)
         {
-            Survey survey1 = new Survey()
+            if(ModelState.IsValid)
             {
-                Name = survey.Name,
-                Location = survey.Location,
-                Language = survey.Language,
-                Comment = survey.Comment
-            };
-            return View("Result", survey1);
+                Survey survey1 = new Survey()
+                {
+                    Name = survey.Name,
+                    Location = survey.Location,
+                    Language = survey.Language,
+                    Comment = survey.Comment
+                };
+                return View("Result", survey1);
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         [HttpGet("result")]
