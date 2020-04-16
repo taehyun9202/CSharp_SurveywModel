@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1 style="padding-left: 80px;">DOJO SURVEY</h1>
+<fieldset style="width: 360px;">
+    <form action="/submit" method="post">
+    <div style="display: inline-block; width: 200px;">
+        <label style="display: block; margin-bottom:10px;">Name:</label>
+        <label style="display: block; margin-bottom:10px;">Location:</label>
+        <label style="display: block; margin-bottom:10px;">Fav Language:</label>
+    </div>
+    <div style="display: inline-block; width: 150px;">
+        <input type="text" name="name" style="display: block; margin-bottom:10px;">
+        <select name="location" style="display: block; height:30px; width: 185px; margin-bottom:10px;">
+            <option value="" disabled selected>Select your option</option>
+            <option value="Arligton">Arligton</option>
+            <option value="Chicago">Chicago</option>
+            <option value="California">California</option>
+        </select>
+        <select name="lang" style="display: block; height:30px; width: 185px; margin-bottom:10px;">
+            <option value="" disabled selected>Select your option</option>
+            <option value="C#">C#</option>
+            <option value="JS">JS</option>
+            <option value="Python">Python</option>
+        </select>
+    </div>
+    <div>
+        <label>Comment (optional)</label>
+        <textarea tpye="text" name="msg" rows="4" style="display: block; width: 390px; margin-top:10px; "></textarea>
+    </div>
+    <button style="margin-top: 10px; margin-left: 155px;">Sumbit</button>
+    </form>
+</fieldset>
