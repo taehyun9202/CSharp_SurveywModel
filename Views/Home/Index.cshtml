@@ -1,24 +1,27 @@
-﻿@{
+@{
     ViewData["Title"] = "Home Page";
 }
-
+@model Survey
 <h1 style="padding-left: 80px;">DOJO SURVEY</h1>
 <fieldset style="width: 360px;">
-    <form action="/submit" method="post">
+    <form asp-action="submit" asp-controller="Home" method="post">
     <div style="display: inline-block; width: 200px;">
-        <label style="display: block; margin-bottom:10px;">Name:</label>
-        <label style="display: block; margin-bottom:10px;">Location:</label>
-        <label style="display: block; margin-bottom:10px;">Fav Language:</label>
+        <span asp-validation-for="Name"></span>
+        <label asp-for="Name" style="display: block; margin-:10px;">Name:</label>
+        <span asp-validation-for="Location"></span>
+        <label asp-for="Location"style="display: block; margin-bottom:10px;">Location:</label>
+        <span asp-validation-for="Language"></span>
+        <label asp-for="Language"style="display: block; margin-bottom:10px;">Fav Language:</label>
     </div>
     <div style="display: inline-block; width: 150px;">
-        <input type="text" name="name" style="display: block; margin-bottom:10px;">
-        <select name="location" style="display: block; height:30px; width: 185px; margin-bottom:10px;">
+        <input type="text" asp-for="Name" style="display: block; margin-bottom:10px;">
+        <select asp-for="Location"  style="display: block; height:30px; width: 185px; margin-bottom:10px;">
             <option value="" disabled selected>Select your option</option>
             <option value="Arligton">Arligton</option>
             <option value="Chicago">Chicago</option>
             <option value="California">California</option>
         </select>
-        <select name="lang" style="display: block; height:30px; width: 185px; margin-bottom:10px;">
+        <select asp-for="Language" style="display: block; height:30px; width: 185px; margin-bottom:10px;">
             <option value="" disabled selected>Select your option</option>
             <option value="C#">C#</option>
             <option value="JS">JS</option>
@@ -26,8 +29,9 @@
         </select>
     </div>
     <div>
-        <label>Comment (optional)</label>
-        <textarea tpye="text" name="msg" rows="4" style="display: block; width: 390px; margin-top:10px; "></textarea>
+        <span asp-validation-for="Comment"></span>
+        <label asp-for="Comment">Comment (optional)</label>
+        <textarea tpye="text" asp-for="Comment" name="msg" rows="4" style="display: block; width: 390px; margin-top:10px; "></textarea>
     </div>
     <button style="margin-top: 10px; margin-left: 155px;">Sumbit</button>
     </form>
